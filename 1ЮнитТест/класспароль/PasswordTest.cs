@@ -13,7 +13,7 @@ namespace ClassLibraryПароли123.Tests
     public class PasswordCheckerTests
     {
         [TestMethod()]
-        public void Check_8Symbols_ReturnsTrue()
+        public void Check_Symbols_ReturnsTrue()
         {
             // Arrange
             string password = "Danya18060$3";
@@ -24,7 +24,7 @@ namespace ClassLibraryПароли123.Tests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod()]
-        public void Check_4Symbols_ReturnsFalse()
+        public void Check_Symbols_ReturnsFalse()
         {
             // Arrange
             string password = "1111";
