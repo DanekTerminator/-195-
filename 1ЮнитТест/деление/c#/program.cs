@@ -29,10 +29,12 @@ namespace Исключения
             {
                 Console.WriteLine("Ошибка");
             }
-            
-           
+            Console.WriteLine("Размер целого числа в байтах:" + " " + sizeof(int));
+            Console.WriteLine("Размер целого числа в байтах:" + " " + sizeof(float));
+
+
+
         }
     }
 
 }
-
