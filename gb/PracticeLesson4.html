@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deposit-calculator</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //2. Банковская программа
+        //Пользователь вводит сумму вклада и процент, который будет начисляться ежегодно. Отобразить размер вклада поочередно на ближайшие N лет.
+
+        function valueCheck(value) {
+            var value;
+            var incorrectValue = "Sorry, but it seems you have entered incorrect value. Please use numbers when entering values. Try again.";
+            while (isNaN(value)) {
+                alert(incorrectValue);
+                value = Number(prompt("Please re-enter value"));
+            }
+            return Math.abs(value);
+        };
+
+        function yearsCheck(years) {
+            var years;
+            var incorrectValue = "Sorry, but it seems you have entered incorrect value. Please use numbers when entering values. Try again.";
+            while (isNaN(years) || years < 1) {
+                if (isNaN(years)) {
+                    alert(incorrectValue);
+                } else if (years < 1) {
+                    alert("We are sorry, but minimun term of deposite is 1 year");
+                }
+                years = parseInt(prompt("Please re-enter preferable term of deposit, years"));
+            }
+            return Math.abs(years);
+        };
+
+        var welcomeMessage = "Hi. With our wonderfull programm you will easily calculate your annual deposit growth";
+        alert(welcomeMessage);
+        var initialDeposit = valueCheck(Number(prompt("Please enter amount of money you are going to place")));
+        var annualInterestRate = valueCheck(Number(prompt("Please enter you preferable Annual Interest Rate, %")));
+        var termOfDeposit = yearsCheck(parseInt(prompt("Please enter you preferable term of deposit, years")));
+        var currentDeposit = initialDeposit;
+        for (var yearCounter = 1; yearCounter <= termOfDeposit; yearCounter++) {
+            currentDeposit = currentDeposit + currentDeposit * (annualInterestRate / 100);
+            alert("Your deposit amount after " + yearCounter + " years is " + currentDeposit.toFixed(2));
+        }
+        alert("Your initial deposit: " + initialDeposit + "\nYour Annual Interest Rate, %: " + annualInterestRate + "\nYour term of deposit, years: " + termOfDeposit + "\nYour deposite after " + termOfDeposit + " years: " + currentDeposit);
+    </script>
+</body>
+
+</html>
